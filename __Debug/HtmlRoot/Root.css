@@ -11,6 +11,8 @@ body {
 }
 
 
+
+
 div#drt1 {
     width: 100vw; height: 100vh;
     background-color: aquamarine;
@@ -37,4 +39,18 @@ div#di1>button {
     width: 75px; height: 25px;
     cursor: pointer;
     margin-left: 2px;
+}
+
+
+
+
+textarea {
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: darkgray;
+    font-family: Consolas;
+    font-size: 11px;
+    resize: none;
+    margin: 4px;
 }
