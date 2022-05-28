@@ -30,14 +30,24 @@ Public NotInheritable Class MainForm
         AddHandler _wb2.CoreWebView2InitializationCompleted, AddressOf pf_CoreWebView2InitializationCompleted
 
 
-        Dim htmlPath As String = Environment.GetCommandLineArgs()(0)
-        htmlPath = Path.Combine(Path.GetDirectoryName(htmlPath), "HtmlRoot")
+        'Dim htmlPath As String = Environment.GetCommandLineArgs()(0)
+        'htmlPath = Path.Combine(Path.GetDirectoryName(htmlPath), "HtmlRoot")
 
-        Dim htmlRootFile As String = Path.Combine(htmlPath, "Root.html")
+        'Dim htmlRootFile As String = Path.Combine(htmlPath, "Root.html")
+        'If File.Exists(htmlRootFile) Then
+        '    _wb2.Source = New Uri(htmlRootFile)
+        'End If
+
+
+
+        Dim htmlPath As String = Environment.GetCommandLineArgs()(0)
+        'htmlPath = Path.Combine(Path.GetDirectoryName(htmlPath), "HtmlRoot")
+        htmlPath = Path.Combine(Path.GetDirectoryName(htmlPath), "..\##___HtmlUiTester")
+
+        Dim htmlRootFile As String = Path.Combine(htmlPath, "TstRol5.html")
         If File.Exists(htmlRootFile) Then
             _wb2.Source = New Uri(htmlRootFile)
         End If
-
 
 
     End Sub
