@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <style>
+        html, body {
+            width: 100vw; height: 100vh;
+            margin: 0px; padding: 0px;
+            /* box-sizing: border-box; */
+        }
+
+        div#drt {
+            background-color: aqua;
+            /* width: 400px; height: 100px; */
+            width: 100vw; height: 100vh;
+            /* margin: 10px; */
+            padding: 10px;
+            /* padding-left: 10px;
+            padding-top: 10px; */
+            box-sizing: border-box;
+
+            /* overflow: hidden; */
+            /* display: flex; */
+            /* justify-content: center;
+            align-items: center; */
+
+            /* justify-content: flex-end; */
+            /* align-items: flex-end; */
+        }
+
+        /* div#drt2 {
+            background-color: aqua;
+            width: 400px; height: 100px;
+            padding-left: 10px;
+            padding-top: 10px;
+            box-sizing: border-box;
+            overflow: hidden;
+        } */
+
+        div.scLeftFooter {
+            width: 100wv; height: 40px;
+            box-sizing: border-box;
+            background-color: brown;
+            /* margin-left: auto; margin-right: 0px;
+            margin-top: auto; margin-bottom: 0px; */
+            position: fixed;
+            /* left: 0px; top: 0px; */
+            right: 10px; bottom: 10px;
+
+            display: flex;
+            /* justify-content: space-around; */
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        div.scLeftFooter>span {
+            background-color: black;
+            color: white;
+            margin: 10px; padding: 4px;
+            padding-left: 8px; padding-right: 8px;
+            cursor: pointer;
+            box-sizing: border-box;
+            border: 1px dashed transparent;
+            user-select: none;
+        }
+
+        div.scLeftFooter>span:hover {
+            border: 1px dashed white;
+        }
+
+        div.scLeftFooter>span:active {
+            /* transform: t(1, 1); */
+            /* transform: translate(1, 1); */
+            /* border: 1px dashed red; */
+            transform: translate(1px, 1px);
+        }
+
+    </style>
+
+<!-- <style>
+    div#drt3 {
+        background-color: aqua;
+        width: 400px; height: 100px;
+        padding-left: 10px;
+        padding-top: 10px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+</style> -->
+</head>
+<body>
+    <div id="drt">
+        <div class="scLeftFooter">
+            <span>Hobis Software Company01</span>
+            <span>Hobis Software Company02</span>
+            <span>Hobis Software Company03</span>
+        </div>
+    </div>
+
+    <script>
+        const _drt = document.getElementById('drt');
+        const _xa = _drt.style;
+        const _xb = getComputedStyle(_drt);
+        const _xc = _drt.computedStyleMap();
+        // _drt.css
+
+        // for (let tx of _xb) {
+        //     // console.log(tx);
+        // }
+
+        // for (const [tp, tv] of _xc) {
+        //     console.log(tp, tv);
+        // }
+
+        // const _x1 = document.styleSheets[0];
+
+        // const tarr = document.styleSheets;
+        // for (const tx of tarr) {
+        //     if (tx instanceof CSSStyleSheet) {
+        //         // console.log(tx, tx instanceof CSSStyleSheet);
+        //         // console.log(tx.cssRules === tx.rules);
+        //         // const tx1 = tx.cssRules;
+        //         // console.log(tx1);
+        //     }
+        // }
+
+
+        // const _x1 = getComputedStyle(_drt);
+        // console.log(_x1);
+
+        const _x71 = document.styleSheets[0];
+        const _x72 = _x71.rules[0];
+
+
+
+        const __fn_gcssdc = (tst) => {
+            const tarr = document.styleSheets;
+
+            let tr = null;
+
+            for (const tc of tarr) {
+                // console.log(tc);
+
+                for (const tb of tc.rules) {
+                    // console.log(tb);
+                    // console.log(tb.selectorText);
+
+                    if (tb.selectorText === tst) {
+                        // console.log(tb);
+                        tr = tb;
+                        break;
+                    }
+                }
+
+                if (tr !== null)
+                    break;
+            }
+
+
+            return tr;
+
+            // const tl = tarr.length;
+
+            // for (let i = 0; i < tl; i++) {
+            //     const tcs = tarr[i];
+            //     console.log(tcs);
+
+
+            // }
+        };
+        const _x41 = __fn_gcssdc('div#drt');
+
+        const _cea = document.querySelectorAll('div.scLeftFooter>span');
+        const __fn_cl = (te) => {
+            // console.log(te.target);
+            console.log(te.target.innerText);
+        };
+        for (const tce of _cea) {
+            tce.addEventListener('click', __fn_cl);
+        }
+
+
+    </script>
+</body>
+</html>

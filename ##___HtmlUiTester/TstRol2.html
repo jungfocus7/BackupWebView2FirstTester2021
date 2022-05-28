@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        html, body {
+            width: 100vw; height: 100vh;
+            margin: 0px; padding: 0px;
+        }
+
+        div.sc_xx {
+            position: absolute;
+            background-color: rebeccapurple;
+            width: 100px; height: 100px;
+            left: 10px; top: 10px;
+        }
+
+        div.sc_xx2 {
+            position: absolute;
+            background-color: rebeccapurple;
+            width: 100px; height: 100px;
+            left: 10px; top: 10px;
+        }
+
+        div.sc_xx3 {
+            position: absolute;
+            background-color: rebeccapurple;
+            width: 100px; height: 100px;
+            left: 10px; top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="sc_xx sc_xx2 sc_xx3"></div>
+
+    <script>
+        // const _x1 = document.styleSheets[0].cssRules;
+
+        const _xda = document.querySelector('div');
+        const tka = _xda.classList.keys();
+        for (let tx of tka) {
+            console.log(tx, _xda.classList[tx]);
+        }
+
+        const tva = _xda.classList.values();
+        for (let ty of tva) {
+            console.log(ty);
+        }
+
+
+    </script>
+</body>
+</html>
