@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <style>
+        html, body {
+            width: 100vw; height: 100vh;
+            margin: 0px; padding: 0px;
+            /* box-sizing: border-box; */
+            font-size: 12px;
+        }
+
+        div#drt {
+            background-color: aqua;
+            width: 100vw; height: 100vh;
+            padding: 0px;
+
+            box-sizing: border-box;
+        }
+
+        div.sccLeftFooter {
+            width: 100wv; height: 100hv;
+            min-width: max-content;
+            box-sizing: border-box;
+            background-color: #a52a2a77;
+            position: fixed;
+            right: 10px; bottom: 10px;
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            border: 0px solid rgba(0, 0, 0, 0.01);
+            border-radius: 7px;
+
+            overflow: hidden;
+        }
+
+        div.sccLeftFooter>span {
+            background-color: black;
+            color: white;
+            width: 80px;
+            text-align: center;
+
+            margin: 4px; padding: 4px;
+            padding-left: 10px; padding-right: 10px;
+            cursor: pointer;
+
+            box-sizing: border-box;
+
+            /* border: 1px dashed transparent; */
+            border-radius: 7px;
+
+            user-select: none;
+
+            animation-duration: 0.5s;
+            animation-name: slideout;
+            animation-fill-mode: both;
+        }
+
+        @keyframes slideout {
+            from {
+                /* margin-left: 100%; */
+                /* width: 100px */
+            }
+
+            to {
+                /* margin-left: 0%; */
+                /* width: 200px; */
+                /* height: 40px; */
+                /* border: 1px dashed whitesmoke; */
+                border: 1px dashed transparent;
+            }
+        }
+
+
+        @keyframes slidein {
+            from {
+                /* margin-left: 100%; */
+                /* width: 100px */
+            }
+
+            to {
+                /* margin-left: 0%; */
+                /* width: 200px; */
+                /* height: 40px; */
+                border: 1px dashed whitesmoke;
+            }
+        }
+
+        div.sccLeftFooter>span:hover {
+            /* border: 1px dashed white; */
+
+            animation-duration: 0.5s;
+            animation-name: slidein;
+            animation-fill-mode: both;
+        }
+
+
+        div.sccLeftFooter>span:active {
+            transform: translate(1px, 1px);
+        }
+
+
+
+        div.sccCanvas {
+            background-color: transparent;
+            width: 100wv; height: 100vh;
+            overflow: hidden;
+        }
+
+        div.sccCanvas>svg {
+            position: absolute;
+            background-color: transparent;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            /* visibility: hidden; */
+        }
+
+        div.sccCanvas>canvas {
+            position: absolute;
+            background-color: transparent;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            visibility: hidden;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="drt">
+        <div class="sccCanvas">
+            <svg>
+                <circle cx="150" cy="150" r="45" color="red"></circle>
+            </svg>
+            <canvas></canvas>
+        </div>
+        <div class="sccLeftFooter">
+            <span>Start</span>
+            <span>Stop</span>
+            <span>Clear</span>
+        </div>
+    </div>
+
+    <script>
+        const __fn_gcssdc = (tst) => {
+            const tarr = document.styleSheets;
+
+            let tr = null;
+
+            for (const tc of tarr) {
+                // console.log(tc);
+
+                for (const tb of tc.rules) {
+                    // console.log(tb);
+                    // console.log(tb.selectorText);
+
+                    if (tb.selectorText === tst) {
+                        // console.log(tb);
+                        tr = tb;
+                        break;
+                    }
+                }
+
+                if (tr !== null)
+                    break;
+            }
+
+
+            return tr;
+        };
+        const _x41 = __fn_gcssdc('div#drt');
+
+        const _cea = document.querySelectorAll('div.sccLeftFooter>span');
+        const __fn_cl = (te) => {
+            // console.log(te.target);
+            console.log(te.target.innerText);
+        };
+        for (const tce of _cea) {
+            tce.addEventListener('click', __fn_cl);
+        }
+
+
+    </script>
+</body>
+</html>
