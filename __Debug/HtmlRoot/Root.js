@@ -41,6 +41,9 @@ const __fn_loadSub = (tta) => {
     // console.log(tta);
     _dcView.innerHTML = tta;
 
+    const tzz = document.getElementById('ta1');
+    tzz.textContent = _dso.counter.toString();
+
 };
 
 
@@ -56,15 +59,19 @@ const __fn_rm_cl = (te) => {
     // console.log(tnum);
     // console.log(typeof tnum);
 
-    if (tnum === _dso.cnum) return;
+    if (tnum === _dso.cnum) {
+        __fn_lfbt1_cl(null);
+        return;
+    }
     _dso.cnum = tnum;
-    console.log(_dso.cnum);
+    // console.log(_dso.cnum);
 
     let tfnm;
-    if (tnum === 1)
+    if (tnum === 1) {
         tfnm = 'Sub01.html';
+        _webview.postMessage(`LoadSubContent;${ tfnm }`);
 
-    _webview.postMessage(`LoadSubContent;${ tfnm }`);
+    }
 
     __fn_lfbt1_cl(null);
 
@@ -111,6 +118,7 @@ _lfbt1.addEventListener('click', __fn_lfbt1_cl);
  */
 const __fn_lfbt2_cl = (te) => {
     _dcView.innerHTML = '';
+    _dso.cnum = -1;
 
 };
 _lfbt2.addEventListener('click', __fn_lfbt2_cl);

@@ -9,47 +9,10 @@ html, body {
     background-color: black;
 
     overflow: hidden;
-
 }
 
 
-
-div.sccRoot {
-    background-color: darkslategrey;
-    width: 100vw; height: 100vh;
-    margin: 0px; padding: 0px;
-
-    box-sizing: border-box;
-    overflow: hidden;
-
-}
-/** }} */
-
-
-
-/** {{ -------------------------------------------------- */
-div.sccLeftFooter {
-    position: fixed;
-    right: 4px; bottom: 4px;
-    padding-left: 4px;
-
-    width: 100wv; height: 100hv;
-    min-width: max-content;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.15);
-
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    border-radius: 7px;
-    overflow: hidden;
-
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-
-}
-
-div.sccLeftFooter>span {
+span.scc__combtn {
     background-color: black;
     color: white;
     width: auto;
@@ -67,17 +30,55 @@ div.sccLeftFooter>span {
     border-radius: 7px;
 
     user-select: none;
-
 }
 
-div.sccLeftFooter>span:hover {
+span.scc__combtn:hover {
     border: 1px dashed white;
-
 }
 
-div.sccLeftFooter>span:active {
+span.scc__combtn:active {
     transform: translate(1px, 1px);
+}
 
+
+
+
+div.sccRoot {
+    background-color: darkslategrey;
+    width: 100vw; height: 100vh;
+    margin: 0px; padding: 0px;
+
+    box-sizing: border-box;
+    overflow: hidden;
+}
+/** }} */
+
+
+
+/** {{ -------------------------------------------------- */
+div.sccRightFooter {
+    position: fixed;
+    right: 4px; bottom: 4px;
+    padding-left: 4px;
+
+    width: 100wv; height: 100hv;
+    min-width: max-content;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.15);
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    border-radius: 7px;
+    overflow: hidden;
+
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+div.sccRightFooter>span {
+    width: auto;
+    text-align: center;
 }
 /** }} */
 
@@ -105,36 +106,13 @@ div.sccRightMenu {
 
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     visibility: hidden;
-
 }
 
 div.sccRightMenu>span {
-    background-color: black;
+    background-color: darkblue;
     color: white;
     width: 240px;
     text-align: left;
-
-    margin: 4px; padding: 4px;
-    padding-left: 10px; padding-right: 10px;
-    cursor: pointer;
-
-    box-sizing: border-box;
-
-    border: 1px dashed transparent;
-    border-radius: 7px;
-
-    user-select: none;
-
-}
-
-div.sccRightMenu>span:hover {
-    border: 1px dashed white;
-
-}
-
-div.sccRightMenu>span:active {
-    transform: translate(1px, 1px);
-
 }
 /** }} */
 
@@ -145,14 +123,13 @@ div.sccMainView {
     /* margin: 0px; padding: 0px; */
     position: absolute;
     top: 0px; left: 0px;
-    right: 0px; bottom: 40px;
+    right: 0px; bottom: 42px;
     box-sizing: border-box;
     /* background-color: rgba(10, 63, 177, 1); */
 
     border-radius: 0px;
     overflow-x: auto;
     overflow-y: auto;
-
 }
 /** }} */
 
@@ -162,7 +139,7 @@ div.sccMainView {
 
 
 
-div.scc__Case1 {
+/* div.scc__Case1 {
     background-color: transparent;
     width: 100%; height: 100%;
     margin: 0px; padding: 0px;
@@ -170,7 +147,7 @@ div.scc__Case1 {
     box-sizing: border-box;
     overflow: hidden;
 
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 
 }
 
@@ -182,7 +159,6 @@ div.scc__Case1_l2 {
     width: 100wv; height: 100hv;
     min-width: max-content;
     box-sizing: border-box;
-    /* background-color: red; */
     background-color: rebeccapurple;
 
     display: flex;
@@ -222,6 +198,6 @@ div.scc__Case1_l2>span:hover {
 div.scc__Case1_l2>span:active {
     transform: translate(1px, 1px);
 
-}
+} */
 
 
