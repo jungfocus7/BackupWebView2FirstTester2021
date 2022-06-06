@@ -87,7 +87,10 @@ Public NotInheritable Class MainForm
         If tea.IsSuccess Then
             _cwb2 = _wb2.CoreWebView2
             AddHandler _cwb2.ContextMenuRequested, AddressOf pf_ContextMenuRequested
-            _cwb2.OpenDevToolsWindow()
+
+            If RuntimeHelper.IsDebugMode Then
+                _cwb2.OpenDevToolsWindow()
+            End If
 
             AddHandler _wb2.WebMessageReceived, AddressOf pf_WebMessageReceived
 
@@ -142,3 +145,29 @@ Public NotInheritable Class MainForm
 
 
 End Class
+
+
+
+
+Public NotInheritable Class RuntimeHelper
+    Private Sub New()
+    End Sub
+
+
+    Public Shared ReadOnly Property IsDebugMode As Boolean
+        Get
+#If DEBUG Then
+            Return True
+#Else
+            Return False
+#End If
+        End Get
+    End Property
+
+
+
+
+End Class
+
+
+
