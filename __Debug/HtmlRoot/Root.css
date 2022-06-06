@@ -4,7 +4,7 @@ html, body {
     width: 100vw; height: 100vh;
     margin: 0px; padding: 0px;
 
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     font-size: 12px;
     background-color: black;
 
@@ -18,10 +18,10 @@ span.scc__combtn {
     width: auto;
     text-align: center;
 
-    margin-right: 4px;
+    margin-left: 0px; margin-right: 4px;
     margin-top: 4px; margin-bottom: 4px;
     padding-left: 14px; padding-right: 14px;
-    padding-top: 4px; padding-bottom: 4px;
+    padding-top: 4px; padding-bottom: 5px;
     cursor: pointer;
 
     box-sizing: border-box;
@@ -70,7 +70,7 @@ div.sccRightFooter {
     justify-content: flex-end;
     align-items: center;
 
-    border-radius: 7px;
+    border-radius: 0px;
     overflow: hidden;
 
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -87,10 +87,10 @@ div.sccRightFooter>span {
 /** {{ -------------------------------------------------- */
 div.sccRightMenu {
     position: fixed;
-    right: 0px; bottom: 60px;
+    right: 0px; bottom: 50px;
 
-    width: 200px; height: 350px;
-    /* min-width: max-content; */
+    width: 100px; height: auto;
+    min-width: max-content;
     box-sizing: border-box;
     background-color: rgba(255, 255, 255, 0.35);
     padding: 4px;
@@ -100,9 +100,9 @@ div.sccRightMenu {
     justify-content: flex-start;
     align-items: flex-start;
 
-    border-radius: 7px;
+    border-radius: 0px;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
 
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     visibility: hidden;
@@ -111,8 +111,13 @@ div.sccRightMenu {
 div.sccRightMenu>span {
     background-color: darkblue;
     color: white;
-    width: 240px;
+    width: auto;
     text-align: left;
+
+    margin-left: 0px; margin-right: 0px;
+    margin-top: 0px; margin-bottom: 4px;
+    padding-left: 8px; padding-right: 8px;
+    padding-top: 4px; padding-bottom: 5px;
 }
 /** }} */
 
@@ -120,14 +125,14 @@ div.sccRightMenu>span {
 
 /** {{ -------------------------------------------------- */
 div.sccMainView {
-    /* margin: 0px; padding: 0px; */
     position: absolute;
     top: 0px; left: 0px;
-    right: 0px; bottom: 42px;
-    box-sizing: border-box;
-    /* background-color: rgba(10, 63, 177, 1); */
+    right: 0px; bottom: 43px;
 
-    border-radius: 0px;
+    margin: 0px; padding: 0px;
+    box-sizing: border-box;
+    background-color: transparent;
+
     overflow-x: auto;
     overflow-y: auto;
 }
