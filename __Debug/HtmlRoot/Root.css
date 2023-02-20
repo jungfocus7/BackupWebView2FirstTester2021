@@ -1,208 +1,77 @@
-/** {{ -------------------------------------------------- */
+/*{########## html, body*/
 html, body {
+    background-color: black;
+    width: 100vw; height: 100vh;
+    margin: 0px; padding: 0px;
     font-family: 'Malgun Gothic', 'Consolas', 'monaco', 'monospace';
-    width: 100vw; height: 100vh;
-    margin: 0px; padding: 0px;
-
-    box-sizing: border-box;
     font-size: 12px;
-    background-color: black;
-
     overflow: hidden;
 }
-
-
-span.scc__combtn {
-    background-color: black;
-    color: white;
-    width: auto;
-    text-align: center;
-
-    margin-left: 0px; margin-right: 4px;
-    margin-top: 4px; margin-bottom: 4px;
-    padding-left: 14px; padding-right: 14px;
-    padding-top: 4px; padding-bottom: 5px;
-    cursor: pointer;
-
-    box-sizing: border-box;
-
-    border: 1px dashed transparent;
-    border-radius: 7px;
-
-    user-select: none;
-}
-
-span.scc__combtn:hover {
-    border: 1px dashed white;
-}
-
-span.scc__combtn:active {
-    transform: translate(1px, 1px);
-}
+/*}##########*/
 
 
 
-
-div.sccRoot {
-    background-color: darkslategrey;
-    width: 100vw; height: 100vh;
-    margin: 0px; padding: 0px;
-
-    box-sizing: border-box;
-    overflow: hidden;
-}
-/** }} */
-
-
-
-/** {{ -------------------------------------------------- */
-div.sccRightFooter {
-    position: fixed;
-    right: 4px; bottom: 4px;
-    padding-left: 4px;
-
-    width: 100wv; height: 100hv;
-    min-width: max-content;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.15);
-
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    border-radius: 0px;
-    overflow: hidden;
-
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-}
-
-div.sccRightFooter>span {
-    width: auto;
-    text-align: center;
-}
-/** }} */
-
-
-
-/** {{ -------------------------------------------------- */
-div.sccRightMenu {
-    position: fixed;
-    right: 0px; bottom: 50px;
-
-    width: 100px; height: auto;
-    min-width: max-content;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.35);
-    padding: 4px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-
-    border-radius: 0px;
-    overflow-x: hidden;
-    overflow-y: auto;
-
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    visibility: hidden;
-}
-
-div.sccRightMenu>span {
-    background-color: darkblue;
-    color: white;
-    width: auto;
-    text-align: left;
-
-    margin-left: 0px; margin-right: 0px;
-    margin-top: 0px; margin-bottom: 4px;
-    padding-left: 8px; padding-right: 8px;
-    padding-top: 4px; padding-bottom: 5px;
-}
-/** }} */
-
-
-
-/** {{ -------------------------------------------------- */
-div.sccMainView {
-    position: absolute;
-    top: 0px; left: 0px;
-    right: 0px; bottom: 43px;
-
-    margin: 0px; padding: 0px;
-    box-sizing: border-box;
-    background-color: transparent;
-
-    overflow-x: auto;
-    overflow-y: auto;
-}
-/** }} */
-
-
-
-
-
-
-
-/* div.scc__Case1 {
+/*{########## 컨테이너 구조*/
+div#_droot {
     background-color: transparent;
     width: 100%; height: 100%;
-    margin: 0px; padding: 0px;
-
-    box-sizing: border-box;
-    overflow: hidden;
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-
+    overflow: auto;
 }
 
-div.scc__Case1_l2 {
+div#_dcontainer {
+    background-color: transparent;
+    width: 100%; height: 100%;
+    font-size: 0px;
+    white-space: nowrap;
+    overflow: auto;
+}
+
+div#_dfooter {
+    background-color: transparent;
     position: absolute;
-    left: 4px; bottom: 10px;
-    padding-left: 4px;
-
-    width: 100wv; height: 100hv;
-    min-width: max-content;
-    box-sizing: border-box;
-    background-color: rebeccapurple;
-
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    border-radius: 7px;
-    overflow: hidden;
-
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-
+    width: auto; height: auto;
+    overflow: auto;
+    font-size: 0px;
+    white-space: nowrap;
+    right: 10px; bottom: 30px;
 }
+/*}##########*/
 
-div.scc__Case1_l2>span {
-    background-color: black;
-    color: white;
-    text-align: left;
 
-    margin: 4px; padding: 4px;
-    padding-left: 10px; padding-right: 10px;
-    cursor: pointer;
 
+/*{########## 페이지 iframe*/
+iframe.c_ifr {
+    width: 700px; height: calc(100vh - 60px);
+    background-color: transparent;
     box-sizing: border-box;
+    border: 10px solid rebeccapurple;
+    display: inline-block;
+}
+/*}##########*/
 
+
+
+/*{########## 하단 버튼 스타일*/
+button.c_bt {
+    background-color: goldenrod;
+    box-sizing: border-box;
     border: 1px dashed transparent;
-    border-radius: 7px;
-
-    user-select: none;
-
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: border-color 0.3s ease-out;
 }
-
-div.scc__Case1_l2>span:hover {
-    border: 1px dashed white;
-
+button.c_bt:hover {
+    transition-duration: 0s;
+    border-color: whitesmoke;
 }
-
-div.scc__Case1_l2>span:active {
+button.c_bt > span {
+    display: inline-block;
+    width: auto; height: auto;
+    padding: 2px 3px 2px 3px;
+    pointer-events: none;
+}
+button.c_bt:active > span {
     transform: translate(1px, 1px);
-
-} */
-
-
+}
+/*}##########*/

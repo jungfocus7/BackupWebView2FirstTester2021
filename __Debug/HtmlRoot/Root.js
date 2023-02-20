@@ -1,163 +1,70 @@
 'use strict';
+import { hfnum, hfstr, hfarr } from "./hbjs/hfCommon.js";
+import { hfCountTask } from "./hbjs/hfCountTask.js";
+import { hfEaseBack, hfEaseBounce, hfEaseCircular, hfEaseElastic, hfTween } from "./hbjs/hfTween.js";
 
 
 
-//-
-const _webview = chrome.webview;
+// const _dcont = document.getElementById('_dcontainer');
+// _dcont.innerHTML = `
+//     <iframe class="c_ifr" src="./TestPages/Tester__hfCommon.html"></iframe>
+//     <iframe class="c_ifr" src="./TestPages/Tester__hfCountTask.html"></iframe>
+//     <iframe class="c_ifr" src="./TestPages/Tester__hfTween.html"></iframe>
+// `;
 
-//- 오른쪽 메뉴 컨테이너
-const _rightMenu = document.querySelector('div.sccRightMenu');
+// const _droot = document.getElementById('_droot');
+const _dcontainer = document.getElementById('_dcontainer');
+const _dfooter = document.getElementById('_dfooter');
+// const _ifa = document.querySelectorAll('iframe.c_ifr');
+// console.log(_droot);
+// console.log(_dcontainer);
+// console.log(_dfooter);
+// console.log(_ifa);
 
-//- 오른쪽 메뉴 아이템들
-const _rms = document.querySelectorAll('div.sccRightMenu>span');
-
-//- 가운데 컨텐츠 뷰
-const _dcView = document.getElementById('dcView');
-
-
-//- 아래 버튼 1
-const _lfbt1 = document.getElementById('lfbt1');
-
-//- 아래 버튼 2
-const _lfbt2 = document.getElementById('lfbt2');
-
-//-
-const _dso = Object.seal({
-    cnum: -1,
-
-
-    // ~~~~
-    counter: new hfCountTask(75, 125, 3)
-
-});
-
-
-
-/**
- * 컨텐트 로드하기
- * @param {*} tta
- */
-const __fn_loadSub = (tta) => {
-    // console.log(tta);
-    _dcView.innerHTML = tta;
-
-    const tzz = document.getElementById('ta1');
-    tzz.textContent = _dso.counter.toString();
-
-};
-
-
-
-
-/**
- * 오른쪽 메뉴들 클릭 핸들러
- * @param {*} te
- */
-const __fn_rm_cl = (te) => {
-    const tct = te.currentTarget;
-    const tnum = +tct.textContent.substr(0, 3);
-    // console.log(tnum);
-    // console.log(typeof tnum);
-
-    if (tnum === _dso.cnum) {
-        __fn_lfbt1_cl(null);
-        return;
+const tca = _dcontainer.children;
+if ((tca !== null) && (tca.length > 0)) {
+    let tes = '';
+    for (const tc of tca) {
+        let tnm = tc.getAttribute('src');
+        const bi = 20;
+        const ei = tnm.lastIndexOf('.html');
+        tnm = tnm.substring(bi, ei);
+//         const tag = `
+// <div class="c_dd">
+//     <div class="c_de">
+//         <span class="c_sd">개발자 확인 사항</span>
+//     </div>
+// </div>`;
+        //const tag = `<input class="c_bt" type="button" value="${ tnm }"></input>`;
+        const tag = `<button class="c_bt"><span>${ tnm }</span></button>`;
+        tes += tag;
     }
-    _dso.cnum = tnum;
-    // console.log(_dso.cnum);
+    _dfooter.innerHTML = tes;
 
-    let tfnm;
-    if (tnum === 1) {
-        tfnm = 'Sub01.html';
-        _webview.postMessage(`LoadSubContent;${ tfnm }`);
+    const btns = _dfooter.querySelectorAll('button.c_bt');
+    const twr = new hfTween(0, 36, hfEaseBounce.easeOut);
+    window.twr = twr;
+    twr.addEventListener(hfTween.ET_UPDATE, (te) => {
+        _dcontainer.scrollTo(twr.Current, 0);
+    });
+    const fn_clh = (te) => {
+        const bt = te.currentTarget;
+        const i = bt.$di;
+        const tx = tca[i];
 
+        const begin = _dcontainer.scrollLeft;
+        let change = tx.offsetLeft;
+        const max = _dcontainer.scrollWidth - _dcontainer.clientWidth;
+        if (change > max) change = max;
+        twr.FromTo(begin, change);
+    };
+    let i = 0;
+    for (const bt of btns) {
+        bt.$di = i;
+        bt.addEventListener('click', fn_clh);
+        ++i;
     }
-
-    __fn_lfbt1_cl(null);
-
-    // _webview.postMessage(
-    //     JSON.stringify({ message: 'LoadSubContent',
-    //         file: tfp }));
-
-};
-
-for (const trm of _rms) {
-    trm.addEventListener('click', __fn_rm_cl);
 }
 
-
-
-
-
-
-/**
- * 오른쪽 메뉴 보이고/감추기
- * @param {*} te
- */
-const __fn_lfbt1_cl = (te) => {
-    if (_lfbt1.textContent === 'Menu Open') {
-        _rightMenu.style.visibility = 'visible';
-        _lfbt1.textContent = 'Menu Close';
-    }
-    else if (_lfbt1.textContent === 'Menu Close') {
-        _rightMenu.style.visibility = 'hidden';
-        _lfbt1.textContent = 'Menu Open';
-    }
-
-};
-_lfbt1.addEventListener('click', __fn_lfbt1_cl);
-
-
-
-
-
-
-/**
- *
- * @param {*} te
- */
-const __fn_lfbt2_cl = (te) => {
-    _dcView.innerHTML = '';
-    _dso.cnum = -1;
-
-};
-_lfbt2.addEventListener('click', __fn_lfbt2_cl);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const _xx = fetch('Sub01.html');
-
-// _dcView.innerHTML = ``;
-
-
-
-
-/*
-const _ta1 = document.getElementById('ta1');
-
-let tcp = 0;
-const __fn_loop = () => {
-    if ((tcp % 13) === 0) {
-        _ta1.value = _ta1.value + 'xx';
-    }
-    tcp++;
-    requestAnimationFrame(__fn_loop);
-};
-// __fn_loop();
-*/
 
 

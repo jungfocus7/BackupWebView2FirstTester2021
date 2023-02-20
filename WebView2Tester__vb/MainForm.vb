@@ -1,5 +1,7 @@
 ﻿Imports System
+Imports System.Drawing
 Imports System.IO
+Imports System.Windows.Forms
 Imports Microsoft.Web.WebView2.Core
 Imports Microsoft.Web.WebView2.WinForms
 
@@ -31,13 +33,21 @@ Public NotInheritable Class MainForm
         Text = [GetType]().Namespace
         MinimumSize = Size
 
+        '모니터다 듀얼 이상일때
+        Dim tcs As Screen = Screen.FromPoint(Cursor.Position)
+        Dim tsb As Rectangle = tcs.WorkingArea
+        Dim tlp As Point = New Point(tsb.Right, tsb.Bottom)
+        Dim tws As Size = Size
+        tlp.Offset(-(tws.Width + 10), -(tws.Height + 10))
+        Location = tlp
+
 
         _cdp = Environment.GetCommandLineArgs()(0)
         _cdp = Path.GetDirectoryName(_cdp)
 
 
         _wb2 = WebView21
-
+        prWebView2EnsureCoreWebView2Async()
         AddHandler _wb2.CoreWebView2InitializationCompleted, AddressOf pf_CoreWebView2InitializationCompleted
 
 
@@ -58,8 +68,16 @@ Public NotInheritable Class MainForm
         '    _wb2.Source = New Uri(htmlRootFile)
         'End If
 
-
     End Sub
+
+
+    Private Async Sub prWebView2EnsureCoreWebView2Async()
+        Dim cweo As New CoreWebView2EnvironmentOptions("--disable-web-security")
+        Dim env As CoreWebView2Environment = Await CoreWebView2Environment.CreateAsync(Nothing, Nothing, cweo)
+        Await _wb2.EnsureCoreWebView2Async(env)
+    End Sub
+
+
 
 
     ''' <summary>
@@ -86,6 +104,7 @@ Public NotInheritable Class MainForm
     Private Sub pf_CoreWebView2InitializationCompleted(tsd As Object, tea As CoreWebView2InitializationCompletedEventArgs)
         If tea.IsSuccess Then
             _cwb2 = _wb2.CoreWebView2
+            '_cwb2.Settings.IsPinchZoomEnabled = False
             AddHandler _cwb2.ContextMenuRequested, AddressOf pf_ContextMenuRequested
 
             If RuntimeHelper.IsDebugMode Then
