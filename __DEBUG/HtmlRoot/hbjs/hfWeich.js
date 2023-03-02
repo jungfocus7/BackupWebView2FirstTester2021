@@ -1,7 +1,5 @@
-//======================================================================
-// # hfWeich: 부드러운 움직임을 애니메이팅 하는 모듈
-//  https://github.com/jungfocus7/jhb0b_as3_libs/blob/master/hbx/src/hbx/balence/CSmoothControl.as
-//======================================================================
+//#region `hfTween: 트윈 클래스`
+//https://github.com/jungfocus7/jhb0b_as3_libs/blob/master/hbx/src/hbx/balence/CSmoothControl.as
 export class hfWeich extends EventTarget {
     static ET_UPDATE = 'update';
     static ET_END = 'end';
@@ -80,4 +78,4 @@ export class hfWeich extends EventTarget {
         this.FromTo(end, this.#now, speed);
     }
 }
-//======================================================================
+//#endregion

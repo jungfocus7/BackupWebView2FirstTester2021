@@ -1,7 +1,5 @@
-//======================================================================
-// # hfCountTask: 카운트 연산하기
-//======================================================================
-class hfCountTask {
+//#region `hfCountTask: 카운트 연산하기`
+export class hfCountTask {
     constructor(countStart = 1, countEnd = 10, plusValue = 1) {
         this.#countStart = countStart;
         this.#countEnd = countEnd;
@@ -59,9 +57,7 @@ class hfCountTask {
         this.#count = this.#countEnd;
     }
 }
-
-export { hfCountTask };
-//======================================================================
+//#endregion
 
 
 

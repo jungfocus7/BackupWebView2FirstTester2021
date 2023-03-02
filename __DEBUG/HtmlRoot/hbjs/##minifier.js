@@ -13,7 +13,7 @@ const fn_jswork = async (fp) => {
     const di = fnm.lastIndexOf('.js');
     const ofp = `./js/${fnm.substring(0, di)}.min.js`;
     const code = fs.readFileSync(ifp, {encoding: 'utf8', flag: 'r'});
-    const res = await terser.minify(code, {format: {quote_style: 1}});
+    const res = await terser.minify(code, {format: {quote_style: 1, comments: false}});
     fs.writeFileSync(ofp, res.code, {encoding: 'utf8'});
 
     console.log(`# ${ifp} minified.`);

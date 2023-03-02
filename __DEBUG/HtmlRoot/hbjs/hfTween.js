@@ -1,3 +1,4 @@
+//#region `easing functions`
 export const hfEaseBack = Object.seal({
 	easeIn(t, b, c, d, s = 1.70158) {
 		return c * (t /= d) * t * ((s + 1) * t - s) + b;
@@ -125,12 +126,11 @@ export const hfEaseExponential = Object.seal({
 		return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
 	}
 });
+//#endregion
 
 
 
-//======================================================================
-// # hfTween:
-//======================================================================
+//#region `hfTween: 트윈 클래스`
 export class hfTween extends EventTarget {
     static ET_UPDATE = 'update';
     static ET_END = 'end';
@@ -231,20 +231,7 @@ export class hfTween extends EventTarget {
     }
 
     To(change) {
-        // this.FromTo()
-        // if (this.#running === true)
-        //     this.Stop();
-        // this.#time = 0;
-        // this.#begin = this.#current;
-        // this.#end = change - this.#begin;
-        // this.#running = true;
-        // this.#fid = requestAnimationFrame(this.#LoopFrame.bind(this));
         this.FromTo(this.#current, change);
     }
 }
-//======================================================================
-
-
-
-
-
+//#endregion

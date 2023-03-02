@@ -1,4 +1,4 @@
-import { hfnum, hfstr, hfarr } from "../js/hfCommon.min.js";
+import { hfnum, hfstr, hfarr, hfdtime } from "../js/hfCommon.min.js";
 import { fn_print, btns } from "./SubCom.js";
 
 
@@ -155,7 +155,7 @@ const fn_clh3 = (te) => {
     fn_print('{{----------  hfarr');
 
     const fn_IsArr = (ta) => {
-        fn_print(`hfarr.IsArr(${ ta }): ${ hfarr.IsArr(ta) }`);
+        fn_print(`hfarr.NotEmpty(${ ta }): ${ hfarr.NotEmpty(ta) }`);
     };
     fn_IsArr([0, 1, 2, 3]);
     fn_IsArr(Array.from('abcdefg'));
@@ -196,4 +196,23 @@ const fn_clh3 = (te) => {
 };
 btns[3].addEventListener('click', fn_clh3);
 fn_clh3(null);
+//#endregion }}
+
+
+//#region {{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  hfdtime
+const fn_clh4 = (te) => {
+    fn_print('{{----------  TimeStamp');
+
+    const fn_TimeStamp = (td) => {
+        for (let i = 0; i < 3; i++) {
+            fn_print(`hfdtime.TimeStamp(${ hfdtime.TimeStamp(td) });`);
+        }
+    };
+    fn_TimeStamp(new Date());
+    fn_print('}}');
+    fn_print('\n');
+    fn_print('\n');
+};
+btns[4].addEventListener('click', fn_clh4);
+fn_clh4(null);
 //#endregion }}
