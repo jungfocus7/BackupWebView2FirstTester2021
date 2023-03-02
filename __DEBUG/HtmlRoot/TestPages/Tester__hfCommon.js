@@ -1,30 +1,9 @@
-import { hfnum, hfstr, hfarr } from "../hbjs/hfCommon.js";
+import { hfnum, hfstr, hfarr } from "../js/hfCommon.min.js";
+import { fn_print, btns } from "./SubCom.js";
 
 
-//{{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  공통
-const tam = document.getElementById('_tam');
-const fn_print = (msg) => {
-    if (msg === null) {
-        tam.textContent = '';
-        return;
-    }
-    // console.log(_tam.textContent);
-    // console.log(_tam.innerHTML);
-    // console.log(_tam.value);
-    let txv = tam.textContent + msg + '\n';
-    tam.textContent = txv;
-    tam.scrollTop = tam.scrollHeight;
-};
 
-
-const btns = document.querySelectorAll('button.c_bt');
-btns[0].addEventListener('click', (te) => {
-    fn_print(null);
-});
-//}}
-
-
-//{{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  hfnum
+//#region {{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  hfnum
 const fn_clh1 = (te) => {
     fn_print('{{----------  hfnum');
 
@@ -118,10 +97,10 @@ const fn_clh1 = (te) => {
 };
 btns[1].addEventListener('click', fn_clh1);
 fn_clh1(null);
-//}}
+//#endregion }}
 
 
-//{{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  hfstr
+//#region {{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  hfstr
 const fn_clh2 = (te) => {
     fn_print('{{----------  hfstr');
 
@@ -168,10 +147,10 @@ const fn_clh2 = (te) => {
 };
 btns[2].addEventListener('click', fn_clh2);
 fn_clh2(null);
-//}}
+//#endregion }}
 
 
-//{{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  hfarr
+//#region {{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  hfarr
 const fn_clh3 = (te) => {
     fn_print('{{----------  hfarr');
 
@@ -217,6 +196,4 @@ const fn_clh3 = (te) => {
 };
 btns[3].addEventListener('click', fn_clh3);
 fn_clh3(null);
-//}}
-
-
+//#endregion }}

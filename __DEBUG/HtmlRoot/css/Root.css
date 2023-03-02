@@ -1,4 +1,4 @@
-/*{########## html, body*/
+/*#region >>> html, body*/
 html, body {
     background-color: black;
     width: 100vw; height: 100vh;
@@ -7,11 +7,11 @@ html, body {
     font-size: 12px;
     overflow: hidden;
 }
-/*}##########*/
+/*#endregion*/
 
 
 
-/*{########## 컨테이너 구조*/
+/*#region >>> 컨테이너 구조*/
 div#_droot {
     background-color: transparent;
     width: 100%; height: 100%;
@@ -35,11 +35,11 @@ div#_dfooter {
     white-space: nowrap;
     right: 10px; bottom: 30px;
 }
-/*}##########*/
+/*#endregion*/
 
 
 
-/*{########## 페이지 iframe*/
+/*#region >>> 페이지 iframe*/
 iframe.c_ifr {
     width: 700px; height: calc(100vh - 60px);
     background-color: transparent;
@@ -47,11 +47,11 @@ iframe.c_ifr {
     border: 10px solid rebeccapurple;
     display: inline-block;
 }
-/*}##########*/
+/*#endregion*/
 
 
 
-/*{########## 하단 버튼 스타일*/
+/*#region >>> 하단 버튼 스타일*/
 button.c_bt {
     background-color: goldenrod;
     box-sizing: border-box;
@@ -74,4 +74,4 @@ button.c_bt > span {
 button.c_bt:active > span {
     transform: translate(1px, 1px);
 }
-/*}##########*/
+/*#endregion*/

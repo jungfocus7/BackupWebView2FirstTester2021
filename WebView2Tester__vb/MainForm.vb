@@ -8,11 +8,9 @@ Imports Microsoft.Web.WebView2.WinForms
 
 
 
-
-
 Public NotInheritable Class MainForm
     ''' <summary>
-    ''' 
+    ''' 생성자
     ''' </summary>
     Public Sub New()
         ' 디자이너에서 이 호출이 필요합니다.
@@ -23,8 +21,9 @@ Public NotInheritable Class MainForm
     End Sub
 
 
+
     ''' <summary>
-    ''' 
+    ''' Load 이벤트
     ''' </summary>
     ''' <param name="tea"></param>
     Protected Overrides Sub OnLoad(tea As EventArgs)
@@ -48,7 +47,7 @@ Public NotInheritable Class MainForm
 
         _wb2 = WebView21
         prWebView2EnsureCoreWebView2Async()
-        AddHandler _wb2.CoreWebView2InitializationCompleted, AddressOf pf_CoreWebView2InitializationCompleted
+        AddHandler _wb2.CoreWebView2InitializationCompleted, AddressOf prCoreWebView2InitializationCompleted
 
 
         Dim htmlPath As String = Environment.GetCommandLineArgs()(0)
@@ -67,17 +66,7 @@ Public NotInheritable Class MainForm
         'If File.Exists(htmlRootFile) Then
         '    _wb2.Source = New Uri(htmlRootFile)
         'End If
-
     End Sub
-
-
-    Private Async Sub prWebView2EnsureCoreWebView2Async()
-        Dim cweo As New CoreWebView2EnvironmentOptions("--disable-web-security")
-        Dim env As CoreWebView2Environment = Await CoreWebView2Environment.CreateAsync(Nothing, Nothing, cweo)
-        Await _wb2.EnsureCoreWebView2Async(env)
-    End Sub
-
-
 
 
     ''' <summary>
@@ -96,27 +85,38 @@ Public NotInheritable Class MainForm
     Private _cwb2 As CoreWebView2
 
 
+
+
     ''' <summary>
-    ''' 
+    ''' EnvironmentOptions 설정
+    ''' </summary>
+    Private Async Sub prWebView2EnsureCoreWebView2Async()
+        Dim cweo As New CoreWebView2EnvironmentOptions("--disable-web-security")
+        Dim env As CoreWebView2Environment = Await CoreWebView2Environment.CreateAsync(Nothing, Nothing, cweo)
+        Await _wb2.EnsureCoreWebView2Async(env)
+    End Sub
+
+
+
+    ''' <summary>
+    ''' Completed 이벤트
     ''' </summary>
     ''' <param name="tsd"></param>
     ''' <param name="tea"></param>
-    Private Sub pf_CoreWebView2InitializationCompleted(tsd As Object, tea As CoreWebView2InitializationCompletedEventArgs)
+    Private Sub prCoreWebView2InitializationCompleted(tsd As Object, tea As CoreWebView2InitializationCompletedEventArgs)
         If tea.IsSuccess Then
             _cwb2 = _wb2.CoreWebView2
             '_cwb2.Settings.IsPinchZoomEnabled = False
-            AddHandler _cwb2.ContextMenuRequested, AddressOf pf_ContextMenuRequested
+            AddHandler _cwb2.ContextMenuRequested, AddressOf prContextMenuRequested
 
-            If RuntimeHelper.IsDebugMode Then
+            If ThRuntime.IsDebugMode Then
                 _cwb2.OpenDevToolsWindow()
             End If
 
-            AddHandler _wb2.WebMessageReceived, AddressOf pf_WebMessageReceived
-
-        Else
+            AddHandler _wb2.WebMessageReceived, AddressOf prWebMessageReceived
         End If
-
     End Sub
+
 
 
     ''' <summary>
@@ -124,13 +124,18 @@ Public NotInheritable Class MainForm
     ''' </summary>
     ''' <param name="tsd"></param>
     ''' <param name="tea"></param>
-    Private Sub pf_ContextMenuRequested(tsd As Object, tea As CoreWebView2ContextMenuRequestedEventArgs)
+    Private Sub prContextMenuRequested(tsd As Object, tea As CoreWebView2ContextMenuRequestedEventArgs)
         tea.Handled = True
-
     End Sub
 
 
-    Private Sub pf_WebMessageReceived(tsd As Object, tea As CoreWebView2WebMessageReceivedEventArgs)
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="tsd"></param>
+    ''' <param name="tea"></param>
+    Private Sub prWebMessageReceived(tsd As Object, tea As CoreWebView2WebMessageReceivedEventArgs)
         Dim tmsg As String = tea.TryGetWebMessageAsString()
         'MsgBox(tmsg)
 
@@ -138,16 +143,20 @@ Public NotInheritable Class MainForm
 
         Select Case tmda(0)
             Case "LoadSubContent"
-                pf_LoadSubContent(tmda(1))
+                prLoadSubContent(tmda(1))
 
         End Select
 
         '_cwb2.ExecuteScriptAsync("alert('xxxx');")
-
     End Sub
 
 
-    Private Sub pf_LoadSubContent(tfnm As String)
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="tfnm"></param>
+    Private Sub prLoadSubContent(tfnm As String)
         Dim tfp As String = Path.Combine(_cdp & "\HtmlRoot", tfnm)
         If File.Exists(tfp) Then
             Dim tta As String = File.ReadAllText(tfp)
@@ -161,32 +170,10 @@ Public NotInheritable Class MainForm
 
     End Sub
 
-
-
 End Class
 
 
 
-
-Public NotInheritable Class RuntimeHelper
-    Private Sub New()
-    End Sub
-
-
-    Public Shared ReadOnly Property IsDebugMode As Boolean
-        Get
-#If DEBUG Then
-            Return True
-#Else
-            Return False
-#End If
-        End Get
-    End Property
-
-
-
-
-End Class
 
 
 

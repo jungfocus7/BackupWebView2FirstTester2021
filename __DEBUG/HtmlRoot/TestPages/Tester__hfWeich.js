@@ -1,19 +1,6 @@
-import { hfWeich } from "../hbjs/hfWeich.js";
+import { hfWeich } from "../js/hfWeich.min.js";
+import { fn_print, btns } from "./SubCom.js";
 
-
-const tam = document.getElementById('_tam');
-const fn_print = (msg) => {
-    if (msg === null) {
-        tam.textContent = '';
-        return;
-    }
-    // console.log(_tam.textContent);
-    // console.log(_tam.innerHTML);
-    // console.log(_tam.value);
-    let txv = tam.textContent + msg + '\n';
-    tam.textContent = txv;
-    tam.scrollTop = tam.scrollHeight;
-};
 
 const cc = document.getElementById('_cc');
 const svgcont = document.getElementById('_svgcont');
@@ -52,11 +39,6 @@ svgcont.addEventListener('click', (te) => {
     twy.To(my);
 });
 
-
-const btns = document.querySelectorAll('button.c_bt');
-btns[0].addEventListener('click', (te) => {
-    fn_print(null);
-});
 
 btns[1].addEventListener('click', (te) => {
     twx.Stop();
