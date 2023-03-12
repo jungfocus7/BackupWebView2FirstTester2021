@@ -201,7 +201,7 @@ fn_clh3(null);
 
 //#region {{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  hfdtime
 const fn_clh4 = (te) => {
-    fn_print('{{----------  TimeStamp');
+    fn_print('{{----------  Format');
 
     const fn_TimeStamp = (td) => {
         for (let i = 0; i < 3; i++) {
@@ -209,6 +209,20 @@ const fn_clh4 = (te) => {
         }
     };
     fn_TimeStamp(new Date());
+    fn_print('\n');
+
+
+    const fn_Format = (fs1, td) => {
+        fn_print(`hfdtime.Format(${ hfdtime.Format(fs1, td) });`);
+    };
+    fn_Format('\\y\\y\\M\\M [yyyy/MM/dd HH:mm:ss.fff] \\H\\d\\f\\m\\s (HHMM)', new Date());
+    fn_Format('\\y\\y\\y\\yyyyy/MM/dd hh:mm:ss.fff', new Date());
+    fn_Format('yyyy/MM/dd hh:mm:ss.fff', new Date());
+    fn_Format('yyy/MM/dd hh:mm:ss.fff', new Date());
+    fn_print(hfdtime.TimeStamp(new Date()));
+    fn_print(hfdtime.TimeStamp(new Date()));
+    fn_print(hfdtime.TimeStamp(new Date()));
+    fn_print(hfdtime.TimeStamp(new Date()));
     fn_print('}}');
     fn_print('\n');
     fn_print('\n');
