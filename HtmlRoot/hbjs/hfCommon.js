@@ -3,7 +3,7 @@ export const hfnum = Object.seal({
     /**
      * 넘버가 맞는지 확인
      * @param {number} tv
-     * @returns boolean
+     * @returns {boolean}
      */
     IsNumber: (tv) => {
         return typeof tv === 'number';
@@ -13,7 +13,7 @@ export const hfnum = Object.seal({
     /**
      * 넘버가 아닌지 확인
      * @param {number} tv
-     * @returns boolean
+     * @returns {boolean}
      */
     NotNumber: (tv) => {
         return typeof tv !== 'number';
