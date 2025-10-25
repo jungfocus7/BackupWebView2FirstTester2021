@@ -23,6 +23,7 @@ const fn_jswork = async (fp) => {
 (async () => {
     await fn_jswork('./hbjs/hfCommon.js');
     await fn_jswork('./hbjs/hfCountTask.js');
+    await fn_jswork('./hbjs/hfNumberRanger.js');
     await fn_jswork('./hbjs/hfTween.js');
     await fn_jswork('./hbjs/hfWeich.js');
     await fn_jswork('./js/Root.js');

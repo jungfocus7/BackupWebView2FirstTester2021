@@ -1,7 +1,3 @@
-/\#\#\#DownFolder
-/\#\#\#SolutionBackup
-/\#\#DEBUG
-/.vs
-/packages
-/WebView2Tester__vb/obj
+/\#\#\#\#BACKUP
+HtmlRoot/node_modules
 desktop.ini
